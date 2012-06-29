@@ -63,7 +63,7 @@ If you're installing new packages, it is best to automatically download & instal
 
 ## Installing to the internal flash
 
-Mozzwald has a [RecoveryOS image](http://mozzwald.com/taxonomy/term/31'), based on OpenWRT, that fits in internal flash.
+Mozzwald has a [RecoveryOS image](http://mozzwald.com/taxonomy/term/31), based on OpenWRT, that fits in internal flash.
 
 
 ## Getting Started
