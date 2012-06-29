@@ -1,0 +1,9 @@
+This repository is pretty boring for most people, please just visit
+
+http://chainxor.org/openwrt-zipit
+
+This repository is the source for that web page.
+
+Every 4 hours that server will pull any changes from this repository
+and use [Maruku](http://maruku.rubyforge.org/) to build any markdown
+files that it finds there.
