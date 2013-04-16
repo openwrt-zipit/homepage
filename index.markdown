@@ -10,6 +10,7 @@ This is an unofficial port of the [OpenWRT](http://www.openwrt.org/) Linux distr
 **Note that this is an unofficial port of "OpenWRT trunk" at this stage.**
 
 # News
+* 16 April 2013 - Current package snapshot repo has moved to [http://mozzwald.homelinux.net/zipit/openwrt/pxa/packages](http://mozzwald.homelinux.net/zipit/openwrt/pxa/packages)
 
 * 18 March 2012 - Package snapshots should be back & current now, after being incomplete/old for a few weeks.
 
@@ -18,7 +19,9 @@ This is an unofficial port of the [OpenWRT](http://www.openwrt.org/) Linux distr
 
 # Downloads
 
-[Latest nightly build](snapshot/) (2.5Mb download.)
+[Latest nightly build](http://mozzwald.homelinux.net/zipit/index.php?dir=openwrt%2Fpxa)
+
+Latest gmenu2x for internal flash: [details @ engine12.com](http://blog.engine12.com/?p=546) and [z2uFlashstock](http://mozzwald.homelinux.net/node/174)
 
 If you're installing new packages, it is best to automatically download & install from inside OpenWRT using [opkg](http://wiki.openwrt.org/doc/techref/opkg).
 
@@ -63,7 +66,7 @@ If you're installing new packages, it is best to automatically download & instal
 
 ## Installing to the internal flash
 
-Mozzwald has a [RecoveryOS image](http://mozzwald.com/taxonomy/term/31), based on OpenWRT, that fits in internal flash.
+Slug from #zipit has created an nice openwrt rootfs with the gmenu2x menu that fits in the Zipit's internal flash. You can find out more about it from [engine12.com](http://blog.engine12.com/?p=546) and you can get the flash script from [mozzwald](http://mozzwald.homelinux.net/node/174).
 
 
 ## Getting Started
