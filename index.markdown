@@ -140,7 +140,12 @@ One command line audio player is moc. *opkg install moc* then *mocp* to run.
 
 If you're wondering what is left to do, there are still several of the Qi Hardware packages that don't build for ZipIt. Or take a look at the [Issues List](https://github.com/projectgus/openwrt-zipit/issues) for OpenWRT-ZipIt. Or, port your favourite program!
 
-Please send me Pull Requests or patches via github so changes can be incorporated.
+Please send us Pull Requests or patches via github so changes can be incorporated.
+
+## About the nightly builds
+
+Should run once a day and attempt to build all packages in the openwrt-zipit repositories. Logs and the build script [are uploaded after each build](http://chainxor.org/openwrt-zipit/snapshot/)
+
 
 ## Credits
 
