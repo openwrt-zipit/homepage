@@ -10,7 +10,7 @@ This is an unofficial port of the [OpenWRT](http://www.openwrt.org/) Linux distr
 **Note that this is an unofficial port of "OpenWRT trunk" at this stage.**
 
 # News
-* 16 April 2013 - Current package snapshot repo has moved to [http://mozzwald.homelinux.net/zipit/openwrt/pxa/packages](http://mozzwald.homelinux.net/zipit/openwrt/pxa/packages)
+* 23 April 2013 - Nightly builds re-enabled again (had stopped in November.) Added some notes about alternative installations, package sources.
 
 * 18 March 2012 - Package snapshots should be back & current now, after being incomplete/old for a few weeks.
 
@@ -19,11 +19,35 @@ This is an unofficial port of the [OpenWRT](http://www.openwrt.org/) Linux distr
 
 # Downloads
 
-[Latest nightly build](http://mozzwald.homelinux.net/zipit/index.php?dir=openwrt%2Fpxa)
+Two images you can install to an SD card (see instructions, below):
 
-Latest gmenu2x for internal flash: [details @ engine12.com](http://blog.engine12.com/?p=546) and [z2uFlashstock](http://mozzwald.homelinux.net/node/174)
+* [Nightly build for SD card, with console](http://chainxor.org/openwrt-zipit/snapshot/openwrt-pxa-zipitz2-rootfs.tar.gz)
 
-If you're installing new packages, it is best to automatically download & install from inside OpenWRT using [opkg](http://wiki.openwrt.org/doc/techref/opkg).
+* [Mozzwald has a recent build with the gmenu2x launcher](http://mozzwald.homelinux.net/zipit/index.php?dir=openwrt%2Fpxa)
+
+<p class="centered"><img src="gmenu2x.png" alt="Gmenu2x launcher, courtesy slug_" /></p>
+
+See below for instructions.
+
+# Internal Install
+
+There is also this image for installation to the internal flash:
+
+[slug_'s recent build with gmenu2x launcher, for installing to internal flash](http://blog.engine12.com/?p=546). 
+
+The tool [z2uFlashstock](http://mozzwald.homelinux.net/node/174) will install this build (and uboot bootloader) onto a stock ZipIt Z2.
+
+# Packages
+
+Packages are built nightly on this site, [directory here](http://chainxor.org/openwrt-zipit/snapshot/packages). The nightly build comes with [opkg](http://wiki.openwrt.org/doc/techref/opkg) configured to install packages automatically from this repository.
+
+Mozzwald's image with gmenu2x is configured to use his [package repository](http://mozzwald.homelinux.net/zipit/openwrt/pxa/packages). There may be packages available in this repository which have failed in the nightly build.
+
+If you wish to switch between the package repositories used by *opkg update*, you can edit the file /etc/opkg.conf on the ZipIt. URLs are
+
+* *http://chainxor.org/openwrt-zipit/snapshot/packages* (nightlies)
+
+* *http://mozzwald.homelinux.net/zipit/openwrt/pxa/packages* (mozzwald's.)
 
 
 ## Pros
@@ -41,15 +65,13 @@ If you're installing new packages, it is best to automatically download & instal
 
 * Not as many packages as Debian [z2sid](http://mozzwald.com/z2sid). In particular, not as many graphical packages (some have been ported from the [Ben Nanonote OpenWRT port](https://github.com/projectgus/qi-openwrt-packages).)
 
-* No formal release as yet, just nightly snapshot builds.
-
 * OpenWRT is officially a router firmware (although it runs on lots of other devices), so some aspects are more router-friendly than handheld-friendly.
 
 ## Requirements
 
 * A ZipIt Z2 and a spare MiniSD card.
 
-* uboot already installed. If your ZipIt is stock, I recommend downloading the latest version of [FlashStock](http://russelldavis.org/2011/02/13/flashstock-v0-1/) from [Mozzwald's downloads page](http://mozzwald.com/download).
+* uboot already installed. If your ZipIt is stock, I recommend downloading the latest version of [FlashStock](http://russelldavis.org/2011/02/13/flashstock-v0-1/) from [Mozzwald's downloads page](http://mozzwald.com/download). Or try [z2uFlashstock](http://mozzwald.homelinux.net/node/174).
 
 ## Installing to an SD card
 
@@ -62,11 +84,6 @@ If you're installing new packages, it is best to automatically download & instal
 * Edit the file etc/config/wireless on the miniSD card and follow the prompts to preconfigure the wireless (easier than doing it on the device.)
 
 * Eject the SD, then insert it into the ZipIt and boot. Press "Enter" to start a new console as root.
-
-
-## Installing to the internal flash
-
-Slug from #zipit has created an nice openwrt rootfs with the gmenu2x menu that fits in the Zipit's internal flash. You can find out more about it from [engine12.com](http://blog.engine12.com/?p=546) and you can get the flash script from [mozzwald](http://mozzwald.homelinux.net/node/174).
 
 
 ## Getting Started
@@ -125,9 +142,11 @@ If you're wondering what is left to do, there are still several of the Qi Hardwa
 
 Please send me Pull Requests or patches via github so changes can be incorporated.
 
-## Thanks To
+## Credits
 
-Big thanks to the OpenWRT developers, anarsoul for all his kernel & OpenWRT work, the #zipit crew, & mozzwald for early testing.
+Worked on by many [#zipit](http://webchat.freenode.net/?channels=zipit) folks - projectgus, anarsoul, mozzwald, deeice & slug_, and many others.
+
+Big thanks to the OpenWRT developers for the original distribution.
 
 ## I Found A Bug
 
