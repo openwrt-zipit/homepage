@@ -35,7 +35,7 @@ There is also this image for installation to the internal flash:
 
 [slug_'s recent build with gmenu2x launcher, for installing to internal flash](http://blog.engine12.com/?p=546). 
 
-The tool [z2uFlashstock](http://mozzwald.homelinux.net/node/174) will install this build (and uboot bootloader) onto a stock ZipIt Z2.
+The tool [z2uFlashstock](http://mozzwald.homelinux.net/node/174) will install this build (and uboot bootloader) onto a stock ZipIt Z2.  You can also use it to update the internal jffs on a uboot Zipit.
 
 # Packages
 
