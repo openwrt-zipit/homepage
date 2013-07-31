@@ -112,6 +112,8 @@ In `/etc/config/wireless` you'll need to change the default settings for `option
 
 There is also a line `option disabled 1` that you will need to comment out or delete in order to enable the wifi.
 
+If you have more than one ZipIt then you'll want to change the value of `option macaddr` to a unique hardware MAC address as well. You can read the correct uniquely assigned MAC address for your ZipIt by looking under the battery cover.
+
 #### Network (IP) config
 
 If you are using DHCP the default `option proto dhcp` setting in `/etc/config/network` can be left alone.
