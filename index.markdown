@@ -90,11 +90,11 @@ If you wish to switch between the package repositories used by *opkg update*, yo
 
 * After you boot, use 'passwd' to set a root password. **This is important: until you do this, passwordless telnet will be available to the ZipIt**.
 
-* After you set a root password, you will be able to ssh to the ZipIt.
+* After you set a root password, you will be able to ssh to the ZipIt as root (ie `ssh root@<zipitaddress>`).
 
-* Use "opkg update" to refresh the list of [packages](snapshot/packages). Use "opkg install *packagename*" to install one.
+* Once the network is up (see below), `opkg update` will refresh the list of [packages](snapshot/packages). Use "opkg install *packagename*" to install one.
 
-* For tons more information, see the [OpenWRT Wiki](http://wiki.openwrt.org/).
+* For tons more information about OpenWRT, see the [OpenWRT Wiki](http://wiki.openwrt.org/).
 
 ## Useful Things
 
@@ -102,9 +102,49 @@ Because this is an early image, most things will need some experimentation to ge
 
 ### Wifi & Network Configuration
 
-Edit the files /etc/config/network & /etc/config/wireless to set up a wifi client, there are comments to guide you.
+OpenWRT has its own system for configuring wifi, using two text files. `/etc/config/wireless` configures the access point connection (ie SSID, password). `/etc/config/network` configures the IP interface (ie DHCP or static IP address.) The configuration system is primarily designed for routers, but it works OK for clients as well.
 
-For a complete reference, check the [OpenWRT wireless network docs](http://wiki.openwrt.org/doc/uci/wireless).
+On the ZipIt you can use 'vi' to edit this files, or you can edit them on your host computer before you first boot up (I recommend editing them beforehand as it's less fiddly than editing on the ZipIt.)
+
+#### Wireless Config
+
+In `/etc/config/wireless` you'll need to change the default settings for `option ssid` to your network name, `option key` to your password and possibly `option encryption` depending on your encryption type ([full list of options here, the default psk2 should work fine for most WPA2 home networks](http://wiki.openwrt.org/doc/uci/wireless#wpa.modes).)
+
+There is also a line `option disabled 1` that you will need to comment out or delete in order to enable the wifi.
+
+#### Network (IP) config
+
+If you are using DHCP the default `option proto dhcp` setting in `/etc/config/network` can be left alone.
+
+If you are using a static IP you should replace the line `option proto dhcp` and create a section that looks like this:
+
+    config interface wlan
+        option proto     static
+        option ipaddr    '192.168.1.200'
+        option netmask   '255.255.255.0'
+        option gateway   '192.168.1.1'
+        option dns       '192.168.1.1'
+
+[Full OpenWRT documentation for the network configuration file](http://wiki.openwrt.org/doc/uci/network).
+
+#### Bringing Up The Network
+
+After the config files are set up, run the command `wifi` (a script at `/sbin/wifi`) to bring up the interface. This command also automatically runs at startup.
+
+You can check if the network is connected properly by running `iwconfig wlan0` (to check association with the access point) and `ifconfig wlan0` (to check for a valid IP address.)
+
+**Please note**: At time of writing the `wifi` command on my ZipIt outputs some messages that look like errors, even when it's working:
+
+    / # wifi
+    command failed: : Operation not supported (-95)
+    command failed: : Operation not supported (-95)
+    ifconfig: SIOCSIFHWADDR: Device or resource busy
+    Successfully initialised wpa_supplicant
+    / #
+
+As long as you see the last line ("Successfully initialised wpa_supplicant"), things are probably OK.
+
+If you're having trouble connecting, try the commands `logread` and `dmesg` to view log output for hints. If you have the SSID and shared key set correctly, you may have to change the encryption type (the `option encryption` discussed above.)
 
 ### Menu/Launcher
 
@@ -113,7 +153,7 @@ Anarsoul has ported gmenu2x. *opkg install gmenu2x* to use. The ZipIt will autom
 ### Audio
 *opkg install kmod-sound-zipit-z2 alsa-utils* to get Linux audio support.
 
-To hear audio, run 'alsamixer' then scroll right until you see "Left Mixer" then "Right Mixer" and press 'm' to unmute them. It'd be nice if someone makes a little alsactl script to automate this, we can put it in the kmod-sound-zipitz2 package. :)
+To hear audio, run `alsamixer` then scroll right until you see "Left Mixer" then "Right Mixer" and press 'm' to unmute them. It'd be nice if someone makes a little alsactl script to automate this, we can put it in the kmod-sound-zipitz2 package. :)
 
 To exit alsamixer, type Ctrl-C (the ... & C keys.)
 
