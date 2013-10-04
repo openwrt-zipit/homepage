@@ -23,7 +23,7 @@ Two images you can install to an SD card (see instructions, below):
 
 * [Nightly build for SD card, with console](http://chainxor.org/openwrt-zipit/snapshot/openwrt-pxa-zipitz2-rootfs.tar.gz)
 
-* [Mozzwald has a recent build with the gmenu2x launcher](http://mozzwald.homelinux.net/zipit/index.php?dir=openwrt%2Fpxa)
+* [Mozzwald has a recent build with the gmenu2x launcher](http://mozzwald.com/zipit/index.php?dir=openwrt%2Fpxa)
 
 <p class="centered"><img src="gmenu2x.png" alt="Gmenu2x launcher, courtesy slug_" /></p>
 
@@ -35,19 +35,19 @@ There is also this image for installation to the internal flash:
 
 [slug_'s recent build with gmenu2x launcher, for installing to internal flash](http://blog.engine12.com/?p=546). 
 
-The tool [z2uFlashstock](http://mozzwald.homelinux.net/node/174) will install this build (and uboot bootloader) onto a stock ZipIt Z2.  You can also use it to update the internal jffs on a uboot Zipit.
+The tool [z2uFlashstock](http://mozzwald.com/node/174) will install this build (and uboot bootloader) onto a stock ZipIt Z2.  You can also use it to update the internal jffs on a uboot Zipit.
 
 # Packages
 
 Packages are built nightly on this site, [directory here](http://chainxor.org/openwrt-zipit/snapshot/packages). The nightly build comes with [opkg](http://wiki.openwrt.org/doc/techref/opkg) configured to install packages automatically from this repository.
 
-Mozzwald's image with gmenu2x is configured to use his [package repository](http://mozzwald.homelinux.net/zipit/openwrt/pxa/packages). There may be packages available in this repository which have failed in the nightly build.
+Mozzwald's image with gmenu2x is configured to use his [package repository](http://mozzwald.com/zipit/openwrt/pxa/packages). There may be packages available in this repository which have failed in the nightly build.
 
 If you wish to switch between the package repositories used by *opkg update*, you can edit the file /etc/opkg.conf on the ZipIt. URLs are
 
 * *http://chainxor.org/openwrt-zipit/snapshot/packages* (nightlies)
 
-* *http://mozzwald.homelinux.net/zipit/openwrt/pxa/packages* (mozzwald's.)
+* *http://mozzwald.com/zipit/openwrt/pxa/packages* (mozzwald's.)
 
 
 ## Pros
@@ -71,7 +71,7 @@ If you wish to switch between the package repositories used by *opkg update*, yo
 
 * A ZipIt Z2 and a spare MiniSD card.
 
-* uboot already installed. If your ZipIt is stock, I recommend downloading the latest version of [FlashStock](http://russelldavis.org/2011/02/13/flashstock-v0-1/) from [Mozzwald's downloads page](http://mozzwald.com/download). Or try [z2uFlashstock](http://mozzwald.homelinux.net/node/174).
+* uboot already installed. If your ZipIt is stock, I recommend downloading the latest version of [FlashStock](http://russelldavis.org/2011/02/13/flashstock-v0-1/) from [Mozzwald's downloads page](http://mozzwald.com/download). Or try [z2uFlashstock](http://mozzwald.com/node/174).
 
 ## Installing to an SD card
 
